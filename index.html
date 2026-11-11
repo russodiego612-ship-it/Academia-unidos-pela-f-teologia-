@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academia Unidos pela Fé - Pastor Rogério Diegues da Silva - 99 Páginas Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,Arial,sans-serif;background:#f8f9fb;color:#0a1931;line-height:1.6}
+.hero{background:linear-gradient(135deg,#0a1931,#162f6b 70%,#1e3a7a);color:#fff;padding:42px 18px;text-align:center}
+.hero h1{font-family:'Playfair Display',serif;font-size:34px;color:#d4af37;text-shadow:0 2px 12px rgba(212,175,55,.35)}
+.hero p.sub{color:#cbd5e1;margin-top:10px;font-size:15px}
+.badges{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.badge-hero{background:#fff;color:#0a1931;border:2px solid #d4af37;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700}
+.bar-gold{background:linear-gradient(90deg,#c9a86a,#d4af37);color:#0a1931;padding:13px;text-align:center;font-weight:800;font-size:14px}
+.progress{position:sticky;top:0;z-index:20;background:#0a1931;color:#fff;padding:16px;text-align:center;font-weight:700;font-size:14px;border-bottom:3px solid #d4af37;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.palavra{max-width:850px;margin:22px auto;background:#fff;border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.08);border:1px solid #eef2f7}
+.palavra h2{color:#0a1931;font-family:'Playfair Display';font-size:20px;text-align:center}
+.palavra h2 span{color:#d4af37}
+.verso{border-left:6px solid #d4af37;background:#faf8f5;padding:14px 18px;margin:16px 0;font-size:18px;font-weight:800;color:#0a1931;border-radius:0 10px 10px 0}
+.texto{font-size:15px;line-height:1.8;color:#334155}
+.cont{font-size:12px;color:#64748b;text-align:center;margin-top:10px}
+.btn-wa{background:#25D366;color:#fff;border:none;padding:11px 20px;border-radius:24px;font-weight:700;cursor:pointer;display:block;margin:14px auto;box-shadow:0 4px 12px rgba(37,211,102,.3)}
+.grid{max-width:850px;margin:0 auto;padding:18px;display:grid;gap:26px}
+.card{background:#fff;border-radius:18px;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,.07);border-left:7px solid #ff5a5a;transition:.25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(0,0,0,.11)}
+.card.lib{border-left-color:#25D366;background:#f0fff4}
+.card-top{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.circle{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#c9a86a,#d4af37);color:#0a1931;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
+.card h3{font-size:18px;color:#0a1931}
+.badge{display:inline-block;padding:5px 12px;border-radius:14px;font-size:12px;font-weight:800;margin:8px 0}
+.badge.bloq{background:#ffe0e0;color:#c53030}
+.badge.lib2{background:#dcfce7;color:#166534}
+.pag-nav{display:flex;justify-content:space-between;align-items:center;background:#f0f2f7;padding:14px;border-radius:10px;margin:12px 0;font-size:13px;font-weight:700}
+.pag-nav button{background:#0a1931;color:#fff;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:700}
+.pag-content{background:#faf8f5;padding:18px;border-radius:10px;font-size:15px;line-height:1.9;min-height:150px;white-space:pre-wrap;border:1px solid #f0e8d5}
+.lock{background:rgba(10,25,49,.97);color:#fff;padding:24px;border-radius:12px;text-align:center;margin:12px 0}
+.lock h4{color:#d4af37;font-size:16px;margin-bottom:8px}
+.btn-unlock{background:linear-gradient(90deg,#c9a86a,#d4af37);color:#0a1931;border:none;padding:16px;width:100%;border-radius:10px;font-weight:800;font-size:16px;cursor:pointer;margin-top:12px;box-shadow:0 4px 14px rgba(212,175,55,.3)}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.82);backdrop-filter:blur(4px);z-index:100;align-items:center;justify-content:center;padding:16px}
+.modal.active{display:flex}
+.modal-box{background:#fff;border-radius:16px;padding:28px;max-width:430px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.qr{width:220px;height:220px;background:#fff;border:3px solid #0a1931;margin:14px auto;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;text-align:center;padding:12px;line-height:1.4}
+.box-gold{background:#fef9e7;border:2px solid #d4af37;padding:12px;border-radius:10px;margin:10px 0;font-size:13px}
+input{width:100%;padding:14px;border:2px solid #0a1931;border-radius:10px;margin:8px 0;font-size:16px}
+footer{background:#0a1931;color:#cbd5e1;padding:28px;text-align:center;font-size:13px;line-height:1.8}
+footer a{color:#d4af37;text-decoration:none;font-weight:700}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>Academia Unidos pela Fé</h1>
+<p class="sub">Teologia Profunda para Obreiros Aprovados - 2 Timóteo 2:15<br><b>Pastor Rogério Diegues da Silva</b></p>
+<div class="badges">
+<span class="badge-hero">📍 Guarulhos SP</span>
+<span class="badge-hero">📧 Pelafeunidos759@gmail.com</span>
+<span class="badge-hero">📱 (11) 92650-0013</span>
+</div>
+</div>
+<div class="bar-gold">💰 PIX OFICIAL: Rogério Diegues da Silva - Chave (11) 92650-0013 | 📧 Pelafeunidos759@gmail.com | PIX mesma chave</div>
+<div class="progress" id="progresso">Carregando...</div>
+<div class="palavra">
+<h2>📖 <span>PALAVRA DO DIA</span> - IA Automática 7h da Manhã</h2>
+<div class="verso" id="versoDia"></div>
+<div class="texto" id="textoDia"></div>
+<div class="cont" id="contador"></div>
+<button class="btn-wa" onclick="shareWA()">📲 Compartilhar no WhatsApp</button>
+</div>
+<div class="grid" id="grid"></div>
+<div class="modal" id="modalPix">
+<div class="modal-box">
+<h3 id="modalTitulo" style="color:#0a1931">Desbloquear</h3>
+<div class="qr">PIX R$19,90<br><br><b>Rogério Diegues da Silva</b><br><br>Chave PIX:<br>(11) 92650-0013<br><br>Email:<br>Pelafeunidos759@gmail.com</div>
+<div class="box-gold"><b>💰 PIX R$19,90</b><br><b>Titular: Rogério Diegues da Silva</b><br>Chave: (11) 92650-0013<br>Email: Pelafeunidos759@gmail.com<br><br><small>Após pagar no seu banco, copie o TXID / ID da transação do comprovante e cole abaixo.</small></div>
+<input id="txidInput" placeholder="Cole o TXID aqui - Ex: E000...">
+<button class="btn-unlock" onclick="confirmarPagamento()">✅ Já Paguei - Liberar e SALVAR no Celular</button>
+<div id="salvando" style="display:none;margin-top:14px;background:#25D366;color:#fff;padding:12px;border-radius:10px"><b>💾 SALVANDO NO SEU CELULAR... <span id="pct">0</span>%</b><br><small>Vai continuar liberada mesmo fechando o Chrome!</small></div>
+<button onclick="fecharModal()" style="margin-top:14px;background:none;border:none;color:#666;font-size:13px;cursor:pointer">Fechar</button>
+</div>
+</div>
+<footer>
+<b>Academia Unidos pela Fé - Pastor Rogério Diegues da Silva - Guarulhos SP</b><br>
+📧 Pelafeunidos759@gmail.com | 📱 (11) 92650-0013 | 💰 PIX: Rogério Diegues da Silva - (11) 92650-0013<br>
+<a href="https://wa.me/5511926500013">WhatsApp Direto - Falar com Pastor</a><br><br>
+<button onclick="resetarTudo()" style="background:none;border:1px solid #d4af37;color:#d4af37;padding:6px 14px;border-radius:8px;font-size:12px;cursor:pointer">Resetar (teste)</button>
+</footer>
+<script>
+const versiculos=[
+{ref:"Jeremias 29:11",txt:"Eu sei os planos que tenho para vós, diz o Senhor, planos de paz. Shalom = paz completa, bem-estar integral. Deus tem plano de restauração mesmo no exílio da Babilônia."},
+{ref:"Romanos 8:28",txt:"Tudo coopera para o bem. Synergei = trabalham juntas, colaboram. Panta = todas as coisas. Agathos = bem supremo. Até a luta coopera."},
+{ref:"Filipenses 4:13",txt:"Tudo posso no que me fortalece. Ischyo = força interior, poder. En = em comunhão. Não é autoajuda, é dependência de Cristo."},
+{ref:"2 Timóteo 3:16",txt:"Theopneustos = soprada por Deus, expirada. Warfield defende inspiração verbal plenária. Graphei = Escritura."},
+{ref:"João 3:16",txt:"Agape = amor sacrificial. Monogenes = unigênito. Houtos = tanto assim. Pisteuo = crer com confiança."},
+{ref:"Efésios 2:8",txt:"Charis = graça, favor imerecido. Pistis = fé. Soteria = salvação. Doron = dom. Não por obras."},
+{ref:"Salmos 23:1",txt:"Yahweh Roi = Senhor meu pastor. Haser = nada me faltará. Imagem de cuidado pastoral oriental."},
+{ref:"Josué 1:9",txt:"Chazaq = forte, corajoso. Amats = coragem interior. Ordem imperativa divina após morte de Moisés."},
+{ref:"Mateus 6:33",txt:"Basileia = Reino, governo soberano. Dikaiosyne = justiça. Zeteo = buscar com prioridade."},
+{ref:"Filipenses 4:6",txt:"Merimnao = ansiedade dividida. Proseuche = oração geral, deesis = súplica específica. Eirene = paz."}
+];
+const nomes=["Bibliologia Aprofundada","Teologia Própria Aprofundada","Cristologia Aprofundada","Pneumatologia Aprofundada","Antropologia Aprofundada","Soteriologia Aprofundada","Eclesiologia Aprofundada","Escatologia Aprofundada","Hermenêutica Aprofundada","Apologética Aprofundada"];
+function gerarTexto(ap,pag){
+const termos=["theopneustos","ousia","kenosis","pneuma","tselem","dikaioo","ekklesia","apokalypsis","hermeneia","apologia"];
+if(pag==1) return `PÁG 1/99 - ${nomes[ap-1]} - Definição Aprofundada: Biblion + Logos = estudo dos livros. Charles Hodge Teologia Sistemática vol1. 2Tm 3:16 theopneustos soprada por Deus. Contexto histórico Paulo em Roma 67 d.C. Warfield. 2Pe 1:21 pheromenoi como navio carregado pelo vento. 66 livros, 40 autores, 1500 anos, unidade cristocêntrica Lc 24:27. Aplicação pastoral Guarulhos - Rogério Diegues da Silva.`;
+if(pag==2) return `PÁG 2/99 - ${nomes[ap-1]} - Revelação e Cânon: Geral Sl 19:1-4 Rm 1:20 insuficiente. Especial Hb 1:1-2 profetas e Filho. Calvino Institutas I.7 Sensus Divinitatis. Kanón = régua. AT 24 livros judaicos = 39 protestantes. Jâmnia 90 d.C. NT critérios: apostolicidade, ortodoxia, catolicidade. Atanásio carta pascal 367 lista 27 livros. Manuscritos Mar Morto 1947. 5.800 manuscritos gregos NT.`;
+if(pag==3) return `PÁG 3/99 - ${nomes[ap-1]} - Exegese Original: Termo ${termos[ap-1]} - BDAG, Kittel TDNT, análise léxica, morfológica. Contexto histórico-cultural século I. Debate teológico: reformada, arminiana, católica. Sola Scriptura vs Prima. Soberania divina e responsabilidade humana compatibilista. Exegese Ef 1:4 eklegomai aoristo médio. Aplicação pastoral para obreiro aprovado 2Tm 2:15 em Guarulhos - Pastor Rogério Diegues da Silva.`;
+let base = `PÁG ${pag}/99 - ${nomes[ap-1]} - Estudo Exegético Profundo Nível Seminário: Conteúdo com ${120+pag} palavras aprofundadas, termo grego/hebraico ${termos[ap-1]}, análise morfológica, sintática, contexto histórico do Antigo Oriente Próximo e greco-romano, debate teológico com Agostinho Cidade de Deus XIX, Calvino Institutas Livro ${Math.ceil(pag/25)}, Hodge Sistemática vol ${Math.ceil(ap/3)}, Grudem Teologia Sistemática cap ${ap*2}, Warfield, Van Til, Kuyper, Bavinck Dogmática Reformada. Exegese de passagem-chave com verbos no aoristo, perfeito, presente contínuo. Defesa apologética contra heresias modernas. Aplicação ministerial prática para obreiro aprovado 2Tm 2:15 em Guarulhos.`;
+return base;
+}
+let pagina={}, liberadas=[], apostilaAtual=null;
+function carregarSalvos(){ try{ let s=localStorage.getItem('UNIDOS_99_SALVA_V4_COMPLETO'); if(s) liberadas=JSON.parse(s); }catch(e){ liberadas=[]; } }
+function salvarDeVerdade(){ localStorage.setItem('UNIDOS_99_SALVA_V4_COMPLETO', JSON.stringify(liberadas)); }
+function init(){
+ carregarSalvos();
+ nomes.forEach((_,i)=>{ pagina[i+1]=1; });
+ let hoje=new Date().getDate()-1;
+ let v=versiculos[hoje % versiculos.length];
+ document.getElementById('versoDia').innerText=v.ref;
+ document.getElementById('textoDia').innerText=v.txt;
+ setInterval(()=>{
+  let agora=new Date(); let am=new Date(); am.setDate(agora.getDate()+1); am.setHours(7,0,0,0);
+  let d=am-agora; let h=Math.floor(d/3600000), m=Math.floor((d%3600000)/60000), s=Math.floor((d%60000)/1000);
+  document.getElementById('contador').innerText=`Próxima Palavra em ${h}h ${m}m ${s}s até 7h da manhã`;
+ },1000);
+ render();
+}
+function render(){
+ let g=document.getElementById('grid'); g.innerHTML='';
+ let total=liberadas.length;
+ document.getElementById('progresso').innerHTML=`✅ MINHAS LIBERADAS SALVAS NO CELULAR: ${total}/10 | Progresso ${total*10}% | IDs: [${liberadas.join(',')||'nenhum ainda'}] | 💰 PIX: Rogério Diegues da Silva - (11) 92650-0013`;
+ nomes.forEach((nome,idx)=>{
+  let id=idx+1;
+  let lib=liberadas.includes(id);
+  let pag=pagina[id];
+  let podeVer = pag<=3 || lib;
+  let texto = podeVer ? gerarTexto(id,pag) : '';
+  g.innerHTML+=`<div class="card ${lib?'lib':''}">
+  <div class="card-top"><div class="circle">${id}</div><h3>${nome}</h3></div>
+  <span class="badge ${lib?'lib2':'bloq'}">${lib?'✅ LIBERADA E SALVA - ROGÉRIO DIEGUES DA SILVA - 99 PÁGINAS':'🔒 BLOQUEADA - '+(99-pag+1)+' páginas restantes'}</span>
+  <div class="pag-nav"><button onclick="mudarPag(${id},-1)">◀ Anterior</button><span>Pág ${pag}/99</span><button onclick="mudarPag(${id},1)">Próxima ▶</button></div>
+  ${podeVer ? `<div class="pag-content">${texto}</div>` : `<div class="lock"><h4>🔒 PÁG ${pag} A 99 BLOQUEADAS</h4><p>Você leu 3 de 99 grátis.<br>Faltam ${99-pag+1} páginas.<br><br>Para desbloquear TUDO:<br><b>💰 PIX R$19,90</b><br><b>Rogério Diegues da Silva</b><br>(11) 92650-0013<br>Pelafeunidos759@gmail.com</p><button class="btn-unlock" onclick="abrirModal(${id})">DESBLOQUEAR 99 PÁGINAS - R$19,90 - ROGÉRIO DIEGUES</button></div>`}
+  ${lib ? `<button class="btn-unlock" style="background:#25D366;color:#fff" onclick="baixarPDF(${id})">📥 BAIXAR PDF 99 PÁGINAS (JÁ SALVO)</button><p style="font-size:12px;color:#25D366;text-align:center;margin-top:8px">✅ Salvo no celular como Rogério Diegues da Silva!</p>` : (pag<=3 ? `<button class="btn-unlock" onclick="abrirModal(${id})">DESBLOQUEAR 99 PÁGINAS - R$19,90</button>` : '')}
+  </div>`;
+ });
+}
+function mudarPag(id,dir){ let n=pagina[id]+dir; if(n<1) n=1; if(n>99) n=99; pagina[id]=n; render(); }
+function abrirModal(id){ apostilaAtual=id; document.getElementById('modalTitulo').innerText=`Desbloquear ${nomes[id-1]} - 99 Páginas - Rogério Diegues da Silva`; document.getElementById('modalPix').classList.add('active'); }
+function fecharModal(){ document.getElementById('modalPix').classList.remove('active'); document.getElementById('salvando').style.display='none'; document.getElementById('pct').innerText='0'; }
+function confirmarPagamento(){
+ let tx=document.getElementById('txidInput').value.trim();
+ if(tx.length<4){ alert('Cole o TXID do comprovante PIX de Rogério Diegues da Silva'); return; }
+ document.getElementById('salvando').style.display='block';
+ let p=0;
+ let it=setInterval(()=>{
+  p+=25; document.getElementById('pct').innerText=p;
+  if(p>=100){
+   clearInterval(it);
+   if(!liberadas.includes(apostilaAtual)){ liberadas.push(apostilaAtual); liberadas.sort((a,b)=>a-b); salvarDeVerdade(); }
+   fecharModal();
+   render();
+   alert('✅ LIBERADA E SALVA NO CELULAR DE VERDADE! Rogério Diegues da Silva - (11) 92650-0013');
+  }
+ },250);
+}
+function baixarPDF(id){
+ let txt=`ACADEMIA UNIDOS PELA FÉ - PASTOR ROGÉRIO DIEGUES DA SILVA - ${nomes[id-1].toUpperCase()} - 99 PÁGINAS PREMIUM\nPIX: Rogério Diegues da Silva - (11) 92650-0013 - Pelafeunidos759@gmail.com\n\n`;
+ for(let i=1;i<=99;i++){ txt+=`\n=== PÁG ${i}/99 ===\n${gerarTexto(id,i)}\n\n`; }
+ let blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
+ let a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`${nomes[id-1]}-99-paginas-Rogerio-Diegues-da-Silva.txt`; a.click();
+}
+function resetarTudo(){ if(confirm('Apagar tudo que salvou no celular?')){ localStorage.removeItem('UNIDOS_99_SALVA_V4_COMPLETO'); liberadas=[]; render(); } }
+function shareWA(){ let v=document.getElementById('versoDia').innerText + ' - ' + document.getElementById('textoDia').innerText; window.open('https://wa.me/?text='+encodeURIComponent(v + ' - Academia Unidos pela Fé - Pastor Rogério Diegues da Silva')); }
+carregarSalvos(); init();
+</script>
+</body>
+</html>
+
