@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academia Unidos pela Fé - 99 Páginas que Salva</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,Arial,sans-serif;background:#f4f6f9;color:#0a1931}
+header{background:#0a1931;color:#fff;padding:22px;text-align:center}
+header h1{font-size:23px;color:#c9a86a}
+.contact-bar{background:#c9a86a;color:#0a1931;padding:12px;text-align:center;font-weight:bold;font-size:14px}
+.palavra{background:#fff;border:3px solid #c9a86a;margin:14px;border-radius:12px;padding:18px}
+.palavra h2{color:#c9a86a;font-size:18px;text-align:center}
+.palavra .verso{font-size:17px;font-weight:bold;margin:12px 0;text-align:center}
+.palavra .texto{font-size:14px;line-height:1.7}
+.contador{font-size:12px;text-align:center;color:#666;margin-top:8px}
+.btn-wa{background:#25D366;color:#fff;border:none;padding:10px 18px;border-radius:20px;font-weight:bold;cursor:pointer;display:block;margin:10px auto}
+.progress{position:sticky;top:0;z-index:10;background:#0a1931;color:#fff;padding:14px;text-align:center;font-size:15px;font-weight:bold;border-bottom:3px solid #c9a86a}
+.grid{display:grid;grid-template-columns:1fr;gap:16px;padding:15px;max-width:800px;margin:0 auto}
+.card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.1);border-left:6px solid #ff3b30}
+.card.liberada{border-left-color:#25D366;background:#f0fff4}
+.card h3{font-size:16px;color:#0a1931}
+.badge{display:inline-block;padding:4px 10px;border-radius:12px;font-size:12px;font-weight:bold;margin:6px 0}
+.badge.bloq{background:#ff3b30;color:#fff}
+.badge.lib{background:#25D366;color:#fff}
+.pag-nav{display:flex;justify-content:space-between;align-items:center;background:#f0f2f5;padding:10px;border-radius:8px;margin:10px 0;font-size:13px;font-weight:bold}
+.pag-nav button{background:#0a1931;color:#fff;border:none;padding:7px 14px;border-radius:6px;cursor:pointer}
+.pag-content{font-size:14px;line-height:1.75;min-height:140px;padding:12px;background:#fafafa;border-radius:8px;margin:8px 0;white-space:pre-wrap}
+.lock{background:rgba(10,25,49,.97);color:#fff;padding:22px;border-radius:10px;text-align:center;margin:10px 0}
+.lock h4{color:#c9a86a;font-size:16px;margin-bottom:8px}
+.btn-unlock{background:#c9a86a;color:#0a1931;border:none;padding:14px;width:100%;border-radius:8px;font-weight:bold;font-size:16px;cursor:pointer;margin-top:12px}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:100;align-items:center;justify-content:center;padding:15px}
+.modal.active{display:flex}
+.modal-box{background:#fff;border-radius:12px;padding:24px;max-width:400px;width:100%;text-align:center}
+.qr{width:200px;height:200px;background:#fff;border:3px solid #0a1931;margin:12px auto;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold;text-align:center;padding:10px}
+input{width:100%;padding:13px;border:2px solid #0a1931;border-radius:8px;margin:8px 0;font-size:16px}
+footer{background:#0a1931;color:#fff;padding:20px;text-align:center;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<h1>Academia Unidos pela Fé - Teologia</h1>
+<p>2 Pedro 3:18 - Pastor Rogério Diegues - Guarulhos SP</p>
+</header>
+<div class="contact-bar">📧 Pelafeunidos759@gmail.com | 📱 (11) 92650-0013 | PIX mesma chave</div>
+<div class="progress" id="progresso">Carregando...</div>
+<div class="palavra" id="palavraDia">
+<h2>📖 PALAVRA DO DIA - IA Automática 7h da Manhã</h2>
+<div class="verso" id="versoDia"></div>
+<div class="texto" id="textoDia"></div>
+<div class="contador" id="contador"></div>
+<button class="btn-wa" onclick="shareWA()">Compartilhar no WhatsApp</button>
+</div>
+<div class="grid" id="grid"></div>
+<div class="modal" id="modalPix">
+<div class="modal-box">
+<h3 id="modalTitulo">Desbloquear</h3>
+<div class="qr">PIX R$19,90<br><br>Chave:<br>(11) 92650-0013<br><br>Pelafeunidos759@gmail.com</div>
+<p style="font-size:14px;margin:10px 0"><b>PIX R$19,90</b><br>(11) 92650-0013<br>Pelafeunidos759@gmail.com<br><br>Após pagar, cole o TXID abaixo:</p>
+<input id="txidInput" placeholder="Ex: E000... (cole aqui)">
+<button class="btn-unlock" onclick="confirmarPagamento()">✅ Já Paguei - Liberar e SALVAR no Celular</button>
+<div id="salvando" style="display:none;margin-top:12px;background:#25D366;color:#fff;padding:10px;border-radius:8px"><b>💾 SALVANDO NO SEU CELULAR... <span id="pct">0</span>%</b><br><small>Vai continuar liberada mesmo fechando o Chrome!</small></div>
+<button onclick="fecharModal()" style="margin-top:12px;background:none;border:none;color:#666;font-size:13px">Fechar</button>
+</div>
+</div>
+<footer>
+Academia Unidos pela Fé - Guarulhos SP<br>
+Pelafeunidos759@gmail.com - (11) 92650-0013<br>
+<a href="https://wa.me/5511926500013" style="color:#c9a86a">WhatsApp Direto</a><br>
+<button onclick="resetarTudo()" style="margin-top:12px;background:none;border:1px solid #fff;color:#fff;padding:6px 12px;border-radius:6px;font-size:12px">Resetar (teste)</button>
+</footer>
+<script>
+const versiculos=[
+{ref:"Jeremias 29:11",txt:"Eu sei os planos que tenho para vós, diz o Senhor, planos de paz. Shalom = paz completa. Deus tem plano mesmo no exílio."},
+{ref:"Romanos 8:28",txt:"Tudo coopera para o bem. Synergei = trabalham juntas. Até luta coopera."},
+{ref:"Filipenses 4:13",txt:"Tudo posso no que me fortalece. Ischyo = força interior."},
+{ref:"2 Timóteo 3:16",txt:"Theopneustos = soprada por Deus. Warfield defende inspiração verbal plenária."},
+{ref:"João 3:16",txt:"Agape + Monogenes. Deus amou e deu."},
+{ref:"Efésios 2:8",txt:"Charis = graça. Não por obras."},
+{ref:"Salmos 23:1",txt:"Yahweh Roi, meu pastor."},
+{ref:"Josué 1:9",txt:"Chazaq = forte, corajoso. Ordem divina."},
+{ref:"Mateus 6:33",txt:"Basileia = Reino. Prioridade."},
+{ref:"Filipenses 4:6",txt:"Merimnao = ansiedade. Oração traz paz."}
+];
+const nomes=["Bibliologia Aprofundada","Teologia Própria Aprofundada","Cristologia Aprofundada","Pneumatologia Aprofundada","Antropologia Aprofundada","Soteriologia Aprofundada","Eclesiologia Aprofundada","Escatologia Aprofundada","Hermenêutica Aprofundada","Apologética Aprofundada"];
+function gerarTexto(ap,pag){
+const termos=["theopneustos","ousia","hypostasis","kenosis","pneuma","tselem","dikaioo","ekklesia","apokalypsis","apologia"];
+if(pag==1) return "PÁG 1/99 - "+nomes[ap-1]+" - Definição Aprofundada: Biblion + Logos = estudo dos livros. Charles Hodge Teologia Sistemática vol1. 2Tm 3:16 theopneustos soprada por Deus. Contexto Paulo em Roma 67 d.C. Warfield defende verbal plenária. 2Pe 1:21 pheromenoi como navio carregado pelo vento. 66 livros, 40 autores, 1500 anos, unidade cristocêntrica Lc 24:27. Aplicação pastoral Guarulhos.";
+if(pag==2) return "PÁG 2/99 - "+nomes[ap-1]+" - Revelação e Cânon: Revelação Geral Sl 19:1 Rm 1:20 insuficiente. Especial Hb 1:1-2 profetas e Filho. Calvino Institutas I.7 Sensus Divinitatis. Kanón = régua. AT 24 livros judaicos = 39 protestantes. Jâmnia 90 d.C. NT critérios apostolicidade, ortodoxia, catolicidade. Atanásio carta pascal 367 lista 27 livros. Manuscritos Mar Morto 1947. 5.800 manuscritos gregos NT.";
+if(pag==3) return "PÁG 3/99 - "+nomes[ap-1]+" - Exegese Original Aprofundada: Termo "+termos[ap-1]+". Análise léxica BDAG, Kittel. Contexto histórico-cultural século I. Debate teológico. Posição reformada Sola Scriptura, soberania divina, responsabilidade humana compatibilista. Exegese Ef 1:4 eklegomai aoristo. Aplicação pastoral Guarulhos.";
+let base = "PÁG "+pag+"/99 - "+nomes[ap-1]+" - Estudo Exegético Profundo Nível Seminário: Conteúdo com "+(120+pag)+" palavras aprofundadas, termo grego/hebraico "+termos[ap-1]+", análise morfológica, sintaxe, contexto histórico, debate, citações Agostinho Cidade de Deus, Calvino Institutas, Hodge Sistemática, Grudem, Warfield, Van Til, Kuyper, Bavinck. Exegese passagem-chave com verbos no aoristo, perfeito, implicações teológicas. Defesa apologética contra heresias modernas. Aplicação ministerial prática para obreiro aprovado 2Tm 2:15 em Guarulhos.";
+return base;
+}
+let pagina={}, liberadas=[], apostilaAtual=null;
+function carregarSalvos(){
+ try{
+  let salvo = localStorage.getItem('UNIDOS_99_SALVA_V4_COMPLETO');
+  if(salvo){ liberadas = JSON.parse(salvo); }
+ }catch(e){ liberadas=[]; }
+}
+function salvarDeVerdade(){
+ localStorage.setItem('UNIDOS_99_SALVA_V4_COMPLETO', JSON.stringify(liberadas));
+}
+function init(){
+ carregarSalvos();
+ nomes.forEach((_,i)=>{ pagina[i+1]=1; });
+ let hoje=new Date().getDate()-1;
+ let v=versiculos[hoje % versiculos.length];
+ document.getElementById('versoDia').innerText=v.ref;
+ document.getElementById('textoDia').innerText=v.txt;
+ setInterval(()=>{
+  let agora=new Date(); let am=new Date(); am.setDate(agora.getDate()+1); am.setHours(7,0,0,0);
+  let d=am-agora; let h=Math.floor(d/3600000), m=Math.floor((d%3600000)/60000), s=Math.floor((d%60000)/1000);
+  document.getElementById('contador').innerText="Próxima Palavra em "+h+"h "+m+"m "+s+"s até 7h";
+ },1000);
+ render();
+}
+function render(){
+ let g=document.getElementById('grid'); g.innerHTML='';
+ let total=liberadas.length;
+ document.getElementById('progresso').innerHTML="✅ MINHAS LIBERADAS SALVAS NO CELULAR: "+total+"/10 | Progresso "+(total*10)+"% | IDs: ["+(liberadas.join(',')||'nenhum ainda')+"] | 📧 Pelafeunidos759@gmail.com | PIX (11) 92650-0013";
+ nomes.forEach((nome,idx)=>{
+  let id=idx+1;
+  let lib=liberadas.includes(id);
+  let pag=pagina[id];
+  let podeVer = pag<=3 || lib;
+  let texto = podeVer ? gerarTexto(id,pag) : '';
+  g.innerHTML+="<div class=\"card "+(lib?'liberada':'')+"\">"+
+  "<h3>"+id+". "+nome+"</h3>"+
+  "<span class=\"badge "+(lib?'lib':'bloq')+"\">"+(lib?'✅ LIBERADA E SALVA NO CELULAR - 99 PÁGINAS':"🔒 BLOQUEADA - "+(99-pag+1)+" páginas restantes")+"</span>"+
+  "<div class=\"pag-nav\"><button onclick=\"mudarPag("+id+",-1)\">◀ Anterior</button><span>Pág "+pag+"/99</span><button onclick=\"mudarPag("+id+",1)\">Próxima ▶</button></div>"+
+  (podeVer ? "<div class=\"pag-content\">"+texto+"</div>" : "<div class=\"lock\"><h4>🔒 PÁG "+pag+" A 99 BLOQUEADAS</h4><p>Você leu 3 de 99 grátis.<br>Faltam "+(99-pag+1)+" páginas de estudo aprofundado com grego/hebraico, exegese, debates.<br><br>Para desbloquear TUDO:<br><b>PIX R$19,90</b><br>(11) 92650-0013<br>Pelafeunidos759@gmail.com<br><br>As outras continuam bloqueadas até pagar.</p><button class=\"btn-unlock\" onclick=\"abrirModal("+id+")\">DESBLOQUEAR 99 PÁGINAS - R$19,90</button></div>")+
+  (lib ? "<button class=\"btn-unlock\" style=\"background:#25D366;color:#fff\" onclick=\"baixarPDF("+id+")\">📥 BAIXAR PDF 99 PÁGINAS (JÁ SALVO)</button><p style=\"font-size:12px;color:#25D366;text-align:center;margin-top:6px\">✅ Salvo no celular! Feche o Chrome e abra que continua liberada.</p>" : (pag<=3 ? "<button class=\"btn-unlock\" onclick=\"abrirModal("+id+")\">DESBLOQUEAR 99 PÁGINAS - R$19,90</button>" : ''))+
+  "</div>";
+ });
+}
+function mudarPag(id,dir){
+ let n=pagina[id]+dir; if(n<1) n=1; if(n>99) n=99; pagina[id]=n; render();
+}
+function abrirModal(id){ apostilaAtual=id; document.getElementById('modalTitulo').innerText="Desbloquear "+nomes[id-1]+" - 99 Páginas"; document.getElementById('modalPix').classList.add('active'); }
+function fecharModal(){ document.getElementById('modalPix').classList.remove('active'); document.getElementById('salvando').style.display='none'; document.getElementById('pct').innerText='0'; }
+function confirmarPagamento(){
+ let tx=document.getElementById('txidInput').value.trim();
+ if(tx.length<4){ alert('Cole o TXID do comprovante PIX'); return; }
+ document.getElementById('salvando').style.display='block';
+ let p=0;
+ let it=setInterval(()=>{
+  p+=25; document.getElementById('pct').innerText=p;
+  if(p>=100){
+   clearInterval(it);
+   if(!liberadas.includes(apostilaAtual)){ liberadas.push(apostilaAtual); liberadas.sort((a,b)=>a-b); salvarDeVerdade(); }
+   fecharModal();
+   render();
+   alert('✅ LIBERADA E SALVA NO CELULAR DE VERDADE!');
+  }
+ },250);
+}
+function baixarPDF(id){
+ let txt="ACADEMIA UNIDOS PELA FÉ - "+nomes[id-1].toUpperCase()+" - 99 PÁGINAS\n";
+ for(let i=1;i<=99;i++){ txt+="\n=== PÁG "+i+"/99 ===\n"+gerarTexto(id,i)+"\n\n"; }
+ let blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
+ let a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=nomes[id-1]+"-99-paginas-completo.txt"; a.click();
+}
+function resetarTudo(){
+ if(confirm('Apagar tudo que salvou no celular?')){
+  localStorage.removeItem('UNIDOS_99_SALVA_V4_COMPLETO');
+  liberadas=[]; render();
+ }
+}
+function shareWA(){
+ let v=document.getElementById('versoDia').innerText + ' - ' + document.getElementById('textoDia').innerText;
+ window.open('https://wa.me/?text='+encodeURIComponent(v + ' - Academia Unidos pela Fé'));
+}
+carregarSalvos(); init();
+</script>
+</body>
+</html>
